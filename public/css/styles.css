@@ -52,7 +52,7 @@ p {
    display: inline-block
 }
 
-form {
+form.item {
   text-align: center;
   margin: 10px 5px 0 20px;
 }

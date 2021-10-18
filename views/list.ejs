@@ -4,15 +4,21 @@
     </div>
 
     <div class="box">
-            <% for (let i=0; i < items.length; i++) { %>
-    <div class="Item">
-        <input type="checkbox">
-        <p> <%=items[i]%></p>
-            <% } %>
+        <% newListItems.forEach(listItem => { %>
+            <form action="/delete" name="itemForm" method="POST">
+                <div class="Item">
+                    <input type="checkbox" name='checkbox' value="<%=listItem._id%>"  onChange="this.form.submit()">
+                     <p> <%=listItem.name%> </p>    
+                    </div>
+                    <input type="hidden" name="listName" value="<%=listTitle%>"></input>
+            </form>
+  
+        <% }) %>
+          
     </div>
      <form class="item" action="/" method="POST"> <div class="mb-3">
          <input type="text"  name='actionItem_inp' placeholder="new Action Item..." required style="box-shadow: none" autocomplete="off">
-         <button type="submit" name="list" value="<%= listTitle %> "> +  </button>
+         <button type="submit" name="list" value="<%=listTitle%> "> +  </button>
      </form>
     </div>
 
