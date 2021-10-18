@@ -129,8 +129,11 @@ app.post('/delete',(req,res)=>{
     }
      
     })
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3500;
+}
+app.listen(port, ()=>  {
 
-app.listen(3500, ()=>  {
-
-    console.log("Server running on port 3500")
+    console.log("Server has started successfully")
   })
